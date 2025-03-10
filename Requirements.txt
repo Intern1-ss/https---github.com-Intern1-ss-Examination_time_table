@@ -1,5 +1,5 @@
 streamlit
 pandas
-st-on-hover-tabs
+streamlit-on-hover-tabs
 openpyxl
 xlrd
