@@ -1,0 +1,5 @@
+streamlit
+pandas
+st-on-hover-tabs
+openpyxl
+xlrd
