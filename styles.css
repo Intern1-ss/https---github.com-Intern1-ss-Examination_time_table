@@ -1,18 +1,19 @@
+/* Sidebar Styling */
 section[data-testid='stSidebar'] {
     background-color: #111;
     flex-shrink: unset !important;
-    
+    color: #fff;
 }
 
-@media(hover:hover) and (min-width: 600px) and (max-width: 769px){
-
+/* Sidebar for Tablet View */
+@media(hover:hover) and (min-width: 600px) and (max-width: 769px) {
     header[data-testid="stHeader"] {
-        display:none;
+        display: none;
     }
 
     section[data-testid='stSidebar'] {
         height: 100%;
-        min-width:95px !important;
+        min-width: 95px !important;
         width: 95px !important;
         margin-left: 305px;
         position: relative;
@@ -21,57 +22,112 @@ section[data-testid='stSidebar'] {
         left: 0;
         background-color: #111;
         overflow-x: hidden;
-        transition: 0.5s ease;
+        transition: all 0.4s ease-in-out;
         padding-top: 60px;
         white-space: nowrap;
     }
 
-    section[data-testid='stSidebar']:hover{
+    section[data-testid='stSidebar']:hover {
         min-width: 330px !important;
-        }
-
-    button[kind="header"] {
-        display: none;
+        transition: all 0.3s ease-in-out;
     }
 
-    div[data-testid="collapsedControl"]{
+    button[kind="header"], div[data-testid="collapsedControl"] {
         display: none;
     }
-
 }
 
-@media(hover: hover) and (min-width: 769px){
-
+/* Sidebar for Larger Screens */
+@media(hover: hover) and (min-width: 769px) {
     header[data-testid="stHeader"] {
-        display:none;
+        display: none;
     }
 
     section[data-testid='stSidebar'] {
         height: 100%;
-        min-width:95px !important;
+        min-width: 95px !important;
         width: 95px !important;
-        transform:translateX(0px);
+        transform: translateX(0px);
         position: relative;
         z-index: 1;
         top: 0;
         left: 0;
         background-color: #111;
         overflow-x: hidden;
-        transition: 0.5s ease;
+        transition: all 0.5s ease-in-out;
         padding-top: 60px;
         white-space: nowrap;
     }
 
-    section[data-testid='stSidebar']:hover{
+    section[data-testid='stSidebar']:hover {
         min-width: 330px !important;
-        }
-
-    button[kind="header"] {
-        display: none;
+        transition: all 0.3s ease-in-out;
     }
 
-    div[data-testid="collapsedControl"]{
+    button[kind="header"], div[data-testid="collapsedControl"] {
         display: none;
     }
 }
 
+/* General Styling for Aesthetic Improvement */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-color: #222;
+}
+
+h1, h2, h3 {
+    color: #fff;
+    font-weight: 600;
+}
+
+.stButton>button {
+    background-color: #007bff !important;
+    color: white !important;
+    border-radius: 5px !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.stButton>button:hover {
+    background-color: #0056b3 !important;
+}
+
+.stTextInput>div>div>input {
+    background-color: #333 !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+}
+/* Enhanced Button Animations */
+.stButton>button {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform: perspective(1px) translateZ(0); /* Force GPU acceleration */
+}
+
+.stButton>button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #0056b3, #00337d);
+}
+
+.stButton>button:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition-duration: 0.1s;
+}
+
+/* Add pulse animation for better hover feedback */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+.stButton>button:hover {
+    animation: pulse 1s infinite;
+}
