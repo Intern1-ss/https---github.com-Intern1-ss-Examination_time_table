@@ -1,77 +1,133 @@
-section[data-testid='stSidebar'] {
-    background-color: #111;
-    flex-shrink: unset !important;
-    
+/* Gradient background for the whole app */
+.stApp {
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    color: white; /* Ensures text contrasts nicely */
 }
-
-@media(hover:hover) and (min-width: 600px) and (max-width: 769px){
-
+/* Styling for the header */
+h1 {
+    position: relative;
+    display: inline-block;
+}
+.beta-badge {
+    position: absolute;
+    top: -0.3rem; /* Kept for vertical alignment */
+    right: -2rem; /* Adjusted to bring BETA closer to PRO */
+    background-color: #ff4b4b;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+/* Sidebar Styling */
+section[data-testid='stSidebar'] {
+    background: linear-gradient(135deg, #4b6cb7, #182848) !important; /* Matched with main app */
+    flex-shrink: unset !important;
+    color: #fff !important;
+    --background-color: transparent !important; /* Override Streamlit's default theme */
+}
+/* Target the sidebar content container specifically */
+section[data-testid='stSidebar'] > div:first-child {
+    background: linear-gradient(135deg, #4b6cb7, #182848) !important;
+    color: #fff !important;
+}
+/* Ensure nested elements don't override the background */
+section[data-testid='stSidebar'] div,
+section[data-testid='stSidebar'] div[role='radiogroup'],
+section[data-testid='stSidebar'] .stRadio > div,
+section[data-testid='stSidebar'] .stSelectbox > div,
+section[data-testid='stSidebar'] .stButton > button,
+section[data-testid='stSidebar'] .stTextInput > div {
+    background: transparent !important;
+    color: #fff !important;
+}
+/* Sidebar for Tablet View */
+@media(hover:hover) and (min-width: 600px) and (max-width: 769px) {
     header[data-testid="stHeader"] {
-        display:none;
+        display: none;
     }
-
     section[data-testid='stSidebar'] {
         height: 100%;
-        min-width:95px !important;
-        width: 95px !important;
+        min-width: 80px !important; /* Increased for icon visibility */
+        width: 80px !important;
         margin-left: 305px;
         position: relative;
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s ease;
+        background: linear-gradient(135deg, #4b6cb7, #182848) !important; /* Matched with main app */
+        overflow-x: hidden !important; /* Reverted to hidden after debugging */
+        transition: all 0.4s ease-in-out;
         padding-top: 60px;
         white-space: nowrap;
+        --background-color: transparent !important; /* Override Streamlit's default theme */
     }
-
-    section[data-testid='stSidebar']:hover{
+    section[data-testid='stSidebar']:hover {
         min-width: 330px !important;
-        }
-
-    button[kind="header"] {
+        width: 330px !important;
+        transition: all 0.3s ease-in-out;
+    }
+    button[kind="header"], div[data-testid="collapsedControl"] {
         display: none;
     }
-
-    div[data-testid="collapsedControl"]{
-        display: none;
+    /* Target the sidebar content container */
+    section[data-testid='stSidebar'] > div:first-child {
+        background: linear-gradient(135deg, #4b6cb7, #182848) !important;
+        color: #fff !important;
     }
-
+    /* Ensure nested elements are transparent */
+    section[data-testid='stSidebar'] div,
+    section[data-testid='stSidebar'] div[role='radiogroup'],
+    section[data-testid='stSidebar'] .stRadio > div,
+    section[data-testid='stSidebar'] .stSelectbox > div,
+    section[data-testid='stSidebar'] .stButton > button,
+    section[data-testid='stSidebar'] .stTextInput > div {
+        background: transparent !important;
+        color: #fff !important;
+    }
 }
-
-@media(hover: hover) and (min-width: 769px){
-
+/* Sidebar for Larger Screens */
+@media(hover: hover) and (min-width: 769px) {
     header[data-testid="stHeader"] {
-        display:none;
+        display: none;
     }
-
     section[data-testid='stSidebar'] {
         height: 100%;
-        min-width:95px !important;
-        width: 95px !important;
-        transform:translateX(0px);
+        min-width: 80px !important; /* Increased for icon visibility */
+        width: 80px !important;
+        transform: translateX(0px);
         position: relative;
         z-index: 1;
         top: 0;
         left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        transition: 0.5s ease;
+        background: linear-gradient(135deg, #4b6cb7, #182848) !important; /* Matched with main app */
+        overflow-x: hidden !important; /* Reverted to hidden after debugging */
+        transition: all 0.5s ease-in-out;
         padding-top: 60px;
         white-space: nowrap;
+        --background-color: transparent !important; /* Override Streamlit's default theme */
     }
-
-    section[data-testid='stSidebar']:hover{
+    section[data-testid='stSidebar']:hover {
         min-width: 330px !important;
-        }
-
-    button[kind="header"] {
+        width: 330px !important;
+        transition: all 0.3s ease-in-out;
+    }
+    button[kind="header"], div[data-testid="collapsedControl"] {
         display: none;
     }
-
-    div[data-testid="collapsedControl"]{
-        display: none;
+    /* Target the sidebar content container */
+    section[data-testid='stSidebar'] > div:first-child {
+        background: linear-gradient(135deg, #4b6cb7, #182848) !important;
+        color: #fff !important;
+    }
+    /* Ensure nested elements are transparent */
+    section[data-testid='stSidebar'] div,
+    section[data-testid='stSidebar'] div[role='radiogroup'],
+    section[data-testid='stSidebar'] .stRadio > div,
+    section[data-testid='stSidebar'] .stSelectbox > div,
+    section[data-testid='stSidebar'] .stButton > button,
+    section[data-testid='stSidebar'] .stTextInput > div {
+        background: transparent !important;
+        color: #fff !important;
     }
 }
-
